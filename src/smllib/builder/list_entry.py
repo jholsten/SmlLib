@@ -18,10 +18,4 @@ class SmlListEntryBuilder(SmlObjBuilder[SmlListEntry]):
             msg = 'value is required!'
             raise ValueError(msg)
 
-        # Maybe it's ascii so we try to decode it
-        if isinstance(value, str):
-            v = a2b_hex(value).decode(errors='ignore')
-            if v.isalnum():
-                ret.value = v
-
         return ret
